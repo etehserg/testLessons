@@ -15,8 +15,6 @@ public class PasswordTest {
         String generatedPassword = buffer.toString();
         return generatedPassword;
     }
-}
-class TestPassword {
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите тип пароля: letter, symbol, number");
