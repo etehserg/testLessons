@@ -28,12 +28,15 @@ class TestPassword {
             case "letter":
                 a = 97;
                 b = 122;
+                break;
             case "symbol":
                 a = 32;
                 b = 42;
+                break;
             case "number":
                 a = 48;
                 b = 57;
+                break;
         }
         PasswordTest pt = new PasswordTest();
         String str = pt.generate(a, b, c);
