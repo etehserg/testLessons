@@ -2,18 +2,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PasswordTest {
-    public static String generate (int a, int b, int c) {
-        int leftLimit = a; //letter a
-        int rightLimit = b; //letter z
-        int targetStringLength = c; //length password
+    public static String generate (int leftLimit, int rightLimit, int targetStringLength) {
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);
         for (int i = 0; i<targetStringLength; i++){
             int randomLimitedInt = leftLimit + (int)(random.nextFloat()*(rightLimit-leftLimit+1));
             buffer.append((char) randomLimitedInt);
         }
-        String generatedPassword = buffer.toString();
-        return generatedPassword;
+        return buffer.toString();
     }
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
@@ -22,22 +18,21 @@ public class PasswordTest {
         System.out.println("Введите длину пароля: ");
         int c = sc.nextInt();
         int a = 0, b = 0;
-        switch (testTypePass){
-            case "letter":
+        switch (testTypePass) {
+            case "letter" -> {
                 a = 97;
                 b = 122;
-                break;
-            case "symbol":
+            }
+            case "symbol" -> {
                 a = 32;
                 b = 42;
-                break;
-            case "number":
+            }
+            case "number" -> {
                 a = 48;
                 b = 57;
-                break;
+            }
         }
-        PasswordTest pt = new PasswordTest();
-        String str = pt.generate(a, b, c);
+        String str = PasswordTest.generate(a, b, c);
         System.out.println(str);
     }
 }
