@@ -43,7 +43,7 @@ public class Roulette {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите ваш тип ставки: конкретное число (1), четное (2), нечетное (3), больше 18 (4), меньше 18(5)");
         int betType = sc.nextInt();
-        System.out.println("Введите вашу ставку: от 0 до 36");
+        System.out.println("Введите вашу ставку: от 0 до 36");  //нужно чтобы печаталось, если betType =1, иначе пропускаем
         int bet = sc.nextInt();
         int computerNumber = generate(0, 36);
         System.out.println("Число от компьютера: " + computerNumber);
@@ -54,11 +54,12 @@ public class Roulette {
 
     public static void main(String[] args) {
         int score = 100;
+        int betGamer = 1;   // for 2 part of new task (number from scanner) betGamer не больше 10% от score
         while (score > 0 && score < 1500) {
             boolean tempBool = Roulette.inputOutput();
             if (tempBool) {
-                score += 1;
-            } else score -= 1;
+                score += betGamer;
+            } else score -= betGamer;
             System.out.println("Ваши очки: " + score);
         }
     }
