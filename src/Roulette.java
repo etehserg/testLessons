@@ -39,28 +39,49 @@ public class Roulette {
         return betIsTrue;
     }
 
-    public static boolean inputOutput() {
+    public static int inputOutput(int score) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите ваш тип ставки: конкретное число (1), четное (2), нечетное (3), больше 18 (4), меньше 18(5)");
         int betType = sc.nextInt();
-        System.out.println("Введите вашу ставку: от 0 до 36");  //нужно чтобы печаталось, если betType =1, иначе пропускаем
-        int bet = sc.nextInt();
+        int bet;
+        int betValue = 0;
+        int score1 = (int) (score*0.1);
+        if (betType==1) {
+            System.out.println("Введите ваше число: от 0 до 36");  //нужно чтобы печаталось, если betType =1, иначе пропускаем
+            bet = sc.nextInt();
+            System.out.println("Введите вашу ставку: от 0 до " + score1);
+            betValue = sc.nextInt()*35;
+        }
+        else bet = 1;
         int computerNumber = generate(0, 36);
         System.out.println("Число от компьютера: " + computerNumber);
         boolean logicTrue = Roulette.logic(betType, bet, computerNumber);
         System.out.println("Ставка " + logicTrue);
-        return logicTrue;
+        int o = 0;
+        if (logicTrue==true&&betType==1){
+            o = betValue;
+        }
+        else if (logicTrue==true) {
+            o = 1;
+        } else if (logicTrue==false&&betType==1) {
+            o = betValue*(-1);
+        }
+        else o=bet*(-1);
+        return o;
     }
 
     public static void main(String[] args) {
         int score = 100;
-        int betGamer = 1;   // for 2 part of new task (number from scanner) betGamer не больше 10% от score
         while (score > 0 && score < 1500) {
-            boolean tempBool = Roulette.inputOutput();
-            if (tempBool) {
-                score += betGamer;
-            } else score -= betGamer;
+            int in = Roulette.inputOutput(score);
+            score = in+score;
             System.out.println("Ваши очки: " + score);
+            if (score <0) {
+                System.out.println("Вы проиграли");
+            }
+            if (score > 1500){
+                System.out.println("Победитель");
+            }
         }
     }
 }
