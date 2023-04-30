@@ -64,7 +64,7 @@ public class Roulette {
         else if (logicTrue==true) {
             o = 1;
         } else if (logicTrue==false&&betType==1) {
-            o = betValue*(-1);
+            o = betValue/35*(-1);
         }
         else o=bet*(-1);
         return o;
