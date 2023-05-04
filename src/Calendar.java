@@ -1,6 +1,7 @@
 public class Calendar {
     public static void main(String[] args) {
         Calendar.calendar2(5);
+        Calendar.calendar(3);
     }
     public static void calendar( int daysNumber) {
         if (daysNumber == 1) {

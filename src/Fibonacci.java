@@ -1,4 +1,4 @@
-public class Fibonachi {
+public class Fibonacci {
     public static void main (String[] args) {
         int first = 1, second = 1; //начальное значение 1ч 2х членов
         int next;

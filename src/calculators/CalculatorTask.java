@@ -36,7 +36,7 @@ public class CalculatorTask {
         System.out.println("вывод калькулятора 2: " + calc2);
 
         Calculator1 calc = new Calculator1();
-        int с = calc.add(4,5);
+        calc.add(4,5);
         calc.set (); //запомнили 9ку
         calc.minus(5, 2); // 5 - 2 = 3
         System.out.println(calc.last);
