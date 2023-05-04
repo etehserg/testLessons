@@ -3,7 +3,7 @@ import java.util.Scanner;
 public interface Converter {
     double getConvertValueToCelsius(double baseValue);
     double getConvertValueToKelvin(double baseValue);
-    double getConvertValueToFarengeit(double baseValue);
+    double getConvertValueToFahrenheit(double baseValue);
 }
 class CelsiusConverter implements Converter{
     public double getConvertValueToCelsius(double baseValue) {
@@ -12,7 +12,7 @@ class CelsiusConverter implements Converter{
     public double getConvertValueToKelvin(double baseValue) {
         return baseValue + 273.15;
     }
-    public double getConvertValueToFarengeit(double baseValue) {
+    public double getConvertValueToFahrenheit(double baseValue) {
         return baseValue*9/5+32;
     }
 }
@@ -25,14 +25,14 @@ class KelvinConverter implements Converter{
     public double getConvertValueToCelsius(double baseValue){
         return baseValue - 273.15;
     }
-    public double getConvertValueToFarengeit(double baseValue){
+    public double getConvertValueToFahrenheit(double baseValue){
         return (baseValue-273.15)*9/5+32;
     }
 }
 
 
 class FarengeitConverter implements Converter{
-    public double getConvertValueToFarengeit(double baseValue) {
+    public double getConvertValueToFahrenheit(double baseValue) {
         return baseValue;
     }
     public double getConvertValueToCelsius(double baseValue){
@@ -63,54 +63,44 @@ class Main {
         System.out.println("Введите тип выводимой температуры в виде C, K, F");
         String tempOut = sc.next();
         String tempForCase = tempIn+tempOut;
-        switch (tempForCase){
+        switch (tempForCase) {
             //преобразование из цельсия
-            case "CC":
-                System.out.println("t в Цельсиях = " + new CelsiusConverter().getConvertValueToCelsius(temperature));
-                break;
-            case "CK":
-                System.out.println("t в Кельвинах = " + new CelsiusConverter().getConvertValueToKelvin(temperature));
-                break;
-            case "CF":
-                System.out.println("t в Фаренгейтах = " + new CelsiusConverter().getConvertValueToFarengeit(temperature));
-                break;
+            case "CC" ->
+                    System.out.println("t в Цельсиях = " + new CelsiusConverter().getConvertValueToCelsius(temperature));
+            case "CK" ->
+                    System.out.println("t в Кельвинах = " + new CelsiusConverter().getConvertValueToKelvin(temperature));
+            case "CF" ->
+                    System.out.println("t в Фаренгейтах = " + new CelsiusConverter().getConvertValueToFahrenheit(temperature));
+
             //преобразование из кельвина
-            case "KC":
-                System.out.println("t в Цельсиях = " + new KelvinConverter().getConvertValueToCelsius(temperature));
-                break;
-            case "KK":
-                System.out.println("t в Кельвинах = " + new KelvinConverter().getConvertValueToKelvin(temperature));
-                break;
-            case "KF":
-                System.out.println("t в Фаренгейтах = " + new KelvinConverter().getConvertValueToFarengeit(temperature));
-                break;
-                //преобразование из фаренгейта
-            case "FC":
-                System.out.println("t в Цельсиях = " + new FarengeitConverter().getConvertValueToCelsius(temperature));
-                break;
-            case "FK":
-                System.out.println("t в Кельвинах = " + new FarengeitConverter().getConvertValueToKelvin(temperature));
-                break;
-            case "FF":
-                System.out.println("t в Фаренгейтах = " + new FarengeitConverter().getConvertValueToFarengeit(temperature));
-                break;
+            case "KC" ->
+                    System.out.println("t в Цельсиях = " + new KelvinConverter().getConvertValueToCelsius(temperature));
+            case "KK" ->
+                    System.out.println("t в Кельвинах = " + new KelvinConverter().getConvertValueToKelvin(temperature));
+            case "KF" ->
+                    System.out.println("t в Фаренгейтах = " + new KelvinConverter().getConvertValueToFahrenheit(temperature));
+
+            //преобразование из фаренгейта
+            case "FC" ->
+                    System.out.println("t в Цельсиях = " + new FarengeitConverter().getConvertValueToCelsius(temperature));
+            case "FK" ->
+                    System.out.println("t в Кельвинах = " + new FarengeitConverter().getConvertValueToKelvin(temperature));
+            case "FF" ->
+                    System.out.println("t в Фаренгейтах = " + new FarengeitConverter().getConvertValueToFahrenheit(temperature));
+
             // пасхалка)
-            case "CP":
-                System.out.println("алых роз для Оксаны = " + new easterEgg() {
-                    @Override
-                    public double getConvertValueToKelvin(double baseValue) {
-                        return 0;
-                    }
+            case "CP" -> System.out.println("алых роз для Оксаны = " + new easterEgg() {
+                @Override
+                public double getConvertValueToKelvin(double baseValue) {
+                    return 0;
+                }
 
-                    @Override
-                    public double getConvertValueToFarengeit(double baseValue) {
-                        return 0;
-                    }
-                }.getConvertValueEgg(temperature));
-                break;
-
-            default:
-                System.out.println("Неправильный тип температуры");
+                @Override
+                public double getConvertValueToFahrenheit(double baseValue) {
+                    return 0;
+                }
+            }.getConvertValueEgg(temperature));
+            default -> System.out.println("Неправильный тип температуры");
         }
     }
 }
