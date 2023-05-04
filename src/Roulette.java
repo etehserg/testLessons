@@ -57,13 +57,13 @@ public class Roulette {
         System.out.println("Число от компьютера: " + computerNumber);
         boolean logicTrue = Roulette.logic(betType, bet, computerNumber);
         System.out.println("Ставка " + logicTrue);
-        int o = 0;
-        if (logicTrue==true&&betType==1){
+        int o;
+        if (logicTrue &&betType==1){
             o = betValue;
         }
-        else if (logicTrue==true) {
+        else if (logicTrue) {
             o = 1;
-        } else if (logicTrue==false&&betType==1) {
+        } else if (betType == 1) {
             o = betValue/35*(-1);
         }
         else o=bet*(-1);
