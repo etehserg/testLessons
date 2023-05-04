@@ -3,8 +3,7 @@ public class GamesCatalogue {
     public static String getString(String[] str) { //args transit to method defaultString
         String test = Arrays.toString(str);
         String test1 = test.replace("null, ", "");
-        String test2 = test1.replace("null", "");
-        return test2;
+        return test1.replace("null", "");
     }
 
     public static void addName(String[] library, String newGameName) {
