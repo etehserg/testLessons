@@ -33,11 +33,13 @@ public class GamesCatalogue {
         Scanner sc = new Scanner(System.in);
         System.out.println("Выберите действие: 1. Добавить запись, 2 Удалить запись, 3 Вывести список записей, 4 Выйти");
         int choose = sc.nextInt();
+        while (choose !=4) {
             if (choose == 1) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Введите наименование игры:");
                 String newGameName = scanner.nextLine();
                 addName(library, newGameName);
+                System.out.println(getString(library));
             }
             if (choose == 2) {
                 Scanner scanner = new Scanner(System.in);
@@ -50,6 +52,9 @@ public class GamesCatalogue {
                 System.out.println("текущие игры:");
                 System.out.println(getString(library));
             }
+            System.out.println("Выберите действие: 1. Добавить запись, 2 Удалить запись, 3 Вывести список записей, 4 Выйти");
+            choose = sc.nextInt();
+        }
     }
 }
 
