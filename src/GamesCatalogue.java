@@ -1,8 +1,10 @@
 import java.util.*;
+
 class Games {
     public String name;
     public String genre;
     public String year;
+
     public Games(String name, String genre, String year) {
         this.name = name;
         this.genre = genre;
@@ -12,14 +14,16 @@ class Games {
     public String toString() {
         return name + "/" + genre + "/" + year;
     }
-
-
 }
+
 public class GamesCatalogue {
-    public static String getString(Games[] str) { //args transit to method defaultString
-        String test = Arrays.toString(str);
-        String test1 = test.replace("null, ", "");
-        return test1.replace("null", "");
+    public static void getString(Games[] library) { //args transit to method defaultString
+        for (int i = 0; i < library.length - 1; i++) {
+            if (library[i] != null) {
+                String test1 = library[i].toString();
+                System.out.println(test1);
+            }
+        }
     }
 
     public static void addName(Games[] library, String newGameName, String genre, String year) {
@@ -28,7 +32,6 @@ public class GamesCatalogue {
                 library[i] = new Games(newGameName, genre, year);
                 break;
             }
-
         }
     }
 
@@ -61,21 +64,21 @@ public class GamesCatalogue {
                 System.out.println("Введите год выпуска игры:");
                 String newGameYear = scanner.nextLine();
                 addName(library, newGameName, newGenre, newGameYear);
-                System.out.println(getString(library));
+                getString(library);
             }
             if (choose == 2) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Введите наименование игры:");
                 String delGameName = scanner.nextLine();
                 delName(library, delGameName);
-                System.out.println(getString(library));
+                getString(library);
             }
             if (choose == 3) {
                 System.out.println("текущие игры:");
-                System.out.println(getString(library));
+                getString(library);
             }
         }
-        while (choose !=4);
+        while (choose != 4);
     }
 }
 
