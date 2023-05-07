@@ -1,24 +1,40 @@
 import java.util.*;
+class Games {
+    public String name;
+    public String genre;
+    public String year;
+    public Games(String name, String genre, String year) {
+        this.name = name;
+        this.genre = genre;
+        this.year = year;
+    }
+
+    public String toString() {
+        return name + "/" + genre + "/" + year;
+    }
+
+
+}
 public class GamesCatalogue {
-    public static String getString(String[] str) { //args transit to method defaultString
+    public static String getString(Games[] str) { //args transit to method defaultString
         String test = Arrays.toString(str);
         String test1 = test.replace("null, ", "");
         return test1.replace("null", "");
     }
 
-    public static void addName(String[] library, String newGameName) {
+    public static void addName(Games[] library, String newGameName, String genre, String year) {
         for (int i = 0; i < library.length - 1; i++) {
             if (library[i] == null) {
-                library[i] = newGameName;
+                library[i] = new Games(newGameName, genre, year);
                 break;
             }
 
         }
     }
 
-    public static void delName(String[] library, String delGameName) {
+    public static void delName(Games[] library, String delGameName) {
         for (int i = 0; i < library.length - 1; i++) {
-            if (Objects.equals(library[i], delGameName)) {
+            if (Objects.equals(library[i].name, delGameName)) {
                 library[i] = null;
                 break;
             }
@@ -26,10 +42,11 @@ public class GamesCatalogue {
     }
 
     public static void main(String[] args) {
-        String[] library = new String[100];
-        library[0] = "Path of Exile";
-        library[1] = "Dragon Age";
-        library[2] = "CS GO";
+        Games[] library;
+        library = new Games[100];
+        library[0] = new Games("Path of Exile", "ARPG", "2008");
+        library[1] = new Games("Lineage II", "MMORPG", "2003");
+        library[2] = new Games("CS GO", "ACTION", "1996");
         int choose;
         do {
             Scanner sc = new Scanner(System.in);
@@ -39,7 +56,11 @@ public class GamesCatalogue {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Введите наименование игры:");
                 String newGameName = scanner.nextLine();
-                addName(library, newGameName);
+                System.out.println("Введите жанр игры:");
+                String newGenre = scanner.nextLine();
+                System.out.println("Введите год выпуска игры:");
+                String newGameYear = scanner.nextLine();
+                addName(library, newGameName, newGenre, newGameYear);
                 System.out.println(getString(library));
             }
             if (choose == 2) {
