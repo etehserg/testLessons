@@ -1,7 +1,4 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 class Games {
@@ -17,6 +14,12 @@ class Games {
 
     public String toString() {
         return name + "/" + genre + "/" + year;
+    }
+
+    public static Games fromString(String line) {
+        String[] test134 = line.split("/");
+        Games Games1 = new Games(test134[0], test134[1], test134[2]);
+        return Games1;
     }
 }
 
@@ -48,21 +51,17 @@ public class GamesCatalogue {
         }
     }
 
-    public static void writeFile(Games[] library) {
-        String strToWrite = Arrays.toString(library);
-        FileOutputStream outFile;
-        try {
-            outFile = new FileOutputStream("library.txt");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public static void writeFile(Games[] library) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("library.txt")));
+        for (int i = 0; i < library.length - 1; i++) {
+            if (library[i] != null) {
+                String test1 = library[i].toString();
+
+                writer.write(test1);
+                writer.newLine();
+            }
         }
-        byte[] buffer = strToWrite.getBytes(); //convert string to bytes
-        try {
-            outFile.write(buffer, 0, buffer.length);
-            System.out.println("Запись успешна");
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        writer.close();
     }
 
     public static void readFile() {
@@ -90,7 +89,7 @@ public class GamesCatalogue {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Games[] library;
         library = new Games[100];
         library[0] = new Games("Path of Exile", "ARPG", "2008");
