@@ -64,30 +64,15 @@ public class GamesCatalogue {
         writer.close();
     }
 
-    public static void readFile() {
-        FileInputStream inFile;
-        try {
-            inFile = new FileInputStream("library.txt");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public static void readFile() throws FileNotFoundException {
+        File file = new File("library.txt");
+        String[] library = new String[100];
+        Scanner sc = new Scanner(file);
+        for (int i1 = 0; sc.hasNextLine(); i1++){
+            library[i1]=sc.nextLine();
         }
-        byte[] buffer = new byte[256];    //some default
-        System.out.println("File data:");
-
-        int count;
-        while (true) {    //if massive bytes more than 256, getting symbols while not obtained -1
-            try {
-                if ((count = inFile.read(buffer)) == -1) break;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            for (int i = 0; i < count; i++) {
-
-                System.out.print((char) buffer[i]);
-            }
+        System.out.println("File data:" + Arrays.toString(library));
         }
-    }
 
     public static void main(String[] args) throws IOException {
         Games[] library;

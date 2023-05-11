@@ -1,1 +1,3 @@
-[Path of Exile/ARPG/2008, Lineage II/MMORPG/2003, CS GO/ACTION/1996, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+Path of Exile/ARPG/2008
+Lineage II/MMORPG/2003
+CS GO/ACTION/1996
