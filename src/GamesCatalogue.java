@@ -56,7 +56,6 @@ public class GamesCatalogue {
         for (int i = 0; i < library.length - 1; i++) {
             if (library[i] != null) {
                 String test1 = library[i].toString();
-
                 writer.write(test1);
                 writer.newLine();
             }
@@ -64,15 +63,15 @@ public class GamesCatalogue {
         writer.close();
     }
 
-    public static void readFile() throws FileNotFoundException {
+    public static String[] readFile(Games[] args) throws FileNotFoundException {
         File file = new File("library.txt");
         String[] library = new String[100];
         Scanner sc = new Scanner(file);
-        for (int i1 = 0; sc.hasNextLine(); i1++){
-            library[i1]=sc.nextLine();
+        for (int i1 = 0; sc.hasNextLine(); i1++) {
+            library[i1] = sc.nextLine();
         }
-        System.out.println("File data:" + Arrays.toString(library));
-        }
+        return library;
+    }
 
     public static void main(String[] args) throws IOException {
         Games[] library;
@@ -113,7 +112,7 @@ public class GamesCatalogue {
             }
             if (choose == 6) {
                 System.out.println("Считываем:");
-                readFile();
+                readFile(library);
             }
         }
         while (choose != 4);
