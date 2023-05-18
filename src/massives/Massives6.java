@@ -1,3 +1,5 @@
+package massives;
+
 public class Massives6 {
     static int[][] multiplyMatrices(int[][] a, int[][] b) {
         int[][] result = new int[a.length][b[0].length];

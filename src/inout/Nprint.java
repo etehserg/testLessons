@@ -1,3 +1,5 @@
+package inout;
+
 public class Nprint{
     public static void main(String[] args) {
     Nprint2.intN2(5);

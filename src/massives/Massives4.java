@@ -1,3 +1,5 @@
+package massives;
+
 import java.util.Arrays;
 
 public class Massives4 {

@@ -1,3 +1,5 @@
+package math;
+
 public class Nod{
     public static void main(String[] args) {
         System.out.println(nod(17, 42));

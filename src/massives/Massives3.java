@@ -1,3 +1,5 @@
+package massives;
+
 public class Massives3 {
     public static void main (String[] args){
         int[] myMassive = {1, 5, 9, 6, 2, 4};

@@ -1,3 +1,5 @@
+package math;
+
 public class Defactoring {
 
     public static void main(String[] args) {

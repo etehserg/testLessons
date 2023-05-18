@@ -1,3 +1,5 @@
+package massives;
+
 public class Massives5 {
     public static void main(String[] args) {
         int maxArray = 0;
