@@ -1,7 +1,6 @@
 package inout;
 
 /*[Input/Output] Write into and then read from a file:
-Strings (text data) - we did a similar exercise in a Games library
 Objects (you can directly write and read complete objects without serializing them into strings) using the ObjectInputStream and ObjectOutputStream
 */
 
