@@ -6,7 +6,7 @@ public class Massives4 {
     public static void main(String[] args){
         int[] myMassive = {1, 5, 9, 6, 2, 4};
         boolean isSorted = false;
-        int tempInt = 0;
+        int tempInt;
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < myMassive.length - 1; i++) {
