@@ -78,9 +78,9 @@ public class NamesCatalogue {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите имя");
         String fromUser = sc.nextLine();
-        String[] read = readFile();        //call readfile   input file, output massive Strings
+        String[] read = readFile();        //call readFile   input file, output massive Strings
         Names[] newMas = massiveStringToMassiveName(read);
-        Names[] sortMas = isSorted(newMas);   //call issorted
+        Names[] sortMas = isSorted(newMas);   //call isSorted
         //make search
 
         //print pole and frequency
