@@ -23,7 +23,7 @@ import java.util.Scanner;
         3. Парсер +
         4. Сложить в массив +
         5. Подготовить массив к поиску (отсортировать)+
-        6. Считать данные пользователя
+        6. Считать данные пользователя +
         7. Выполнить логарифмический(бинарный) поиск
         8. Вывести только пол и частоту если есть введенные данные*/
 class Names {
@@ -39,7 +39,7 @@ class Names {
 }
 
 public class NamesCatalogue {
-    public static String[] readFile(Names[] args) throws FileNotFoundException {
+    public static String[] readFile() throws FileNotFoundException {
         File file = new File("yob2022.txt");
         String[] names = new String[100];
         Scanner sc = new Scanner(file);
@@ -50,20 +50,40 @@ public class NamesCatalogue {
     }
 
     public static Names fromString(String names) {
-        String[] test134 = names.split("/");
+        String[] test134 = names.split(",");
         Names Names1 = new Names(test134[0], test134[1], test134[2]);
         return Names1;
     }
 
     public static Names[] isSorted(Names[] names) {
-        Arrays.sort(names);
+        Arrays.sort(names);  //нужен компаратор
         return names;
     }
 
-    public static void main(String[] args) {
+    public static Names[] massiveStringToMassiveName(String[] lines){
+        Names[] names = {};
+        for (int i = 0; i<lines.length; i++){
+            names[i] = fromString(lines[i]);
+        }
+        return names;
+    }
+
+    public static int bynSearch (Names[] inNames, String inName){
+        int names;
+        names = Arrays.binarySearch(inNames, inName); //нужен компаратор
+        return names;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите имя");
         String fromUser = sc.nextLine();
+        String[] read = readFile();        //call readfile   input file, output massive Strings
+        Names[] newMas = massiveStringToMassiveName(read);
+        Names[] sortMas = isSorted(newMas);   //call issorted
+        //make search
+
+        //print pole and frequency
     }
 
 
