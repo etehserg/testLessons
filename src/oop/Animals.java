@@ -12,6 +12,11 @@ package oop;/*
 
 abstract class Animals {
     String name;
+    Animals (String name){
+
+        this.name = name;
+        System.out.println("creating animal");
+    }
 }
 
 interface Swimming {
@@ -28,7 +33,8 @@ interface Singing {
 
 class Cat extends Animals implements Singing {
     Cat(String name){
-        this.name = name;
+        super(name);
+        System.out.println("creating cat");
     }
     public String sing() {
         return "i'm singing";
@@ -37,7 +43,8 @@ class Cat extends Animals implements Singing {
 
 class Duck extends Animals implements Singing, Swimming, Flying {
     Duck(String name){
-        this.name = name;
+        super(name);
+        System.out.println("creating duck");
     }
     public String sing() {
         return "i'm singing";
@@ -54,7 +61,8 @@ class Duck extends Animals implements Singing, Swimming, Flying {
 
 class Fish extends Animals implements Swimming {
     Fish(String name){
-        this.name = name;
+        super(name);
+        System.out.println("creating fish");
     }
     public String swim() {
         return "i'm swimming";
@@ -63,7 +71,8 @@ class Fish extends Animals implements Swimming {
 
 class Fly extends Animals implements Flying {
     Fly(String name){
-        this.name = name;
+        super(name);
+        System.out.println("creating fly");
     }
     public String fly() {
         return "i'm flying";
