@@ -1,4 +1,4 @@
-/*
+package oop;/*
 Создать классы и интерфейсы для разных животных
 
  - все животные имеют общие свойства - для простоты пусть будет только одно такое свойство String name
@@ -10,31 +10,52 @@
 
  */
 
-/*abstract class Animals {
+abstract class Animals {
     String name;
-
-    public static void main(String[] args) {
-        Fish fish1 = new Fish();
-        System.out.println(fish1.toString(fish1));
-        Muha muha1 = new Muha();
-    }
 }
-interface Swimmer {
+
+interface Swimming {
     String swim();
 }
-class Fish extends Animals implements Swimmer {
+
+interface Flying {
+    String fly();
+}
+
+interface Singing {
+    String sing();
+}
+
+class Cat extends Animals implements Singing {
+    public String sing() {
+        return "i'm singing";
+    }
+}
+
+class Duck extends Animals implements Singing, Swimming, Flying {
+    public String sing() {
+        return "i'm singing";
+    }
+
+    public String swim() {
+        return "i'm swimming";
+    }
+
+    public String fly() {
+        return "i'm flying";
+    }
+}
+
+class Fish extends Animals implements Swimming {
     public String swim() {
         return "i'm swimming";
     }
 }
 
-interface Flyer {
-    String fly();
-}
-class Muha extends Animals implements Flyer {
+class Fly extends Animals implements Flying {
     public String fly() {
         return "i'm flying";
     }
-}*/
+}
 
 

@@ -4,6 +4,7 @@ package massives;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /*Написать программу справочник имён. Программа считывает из файла базу данных имен в текстовом виде:
@@ -56,19 +57,24 @@ public class NamesCatalogue {
     }
 
     public static Names[] isSorted(Names[] names) {
-        Arrays.sort(names);  //нужен компаратор
+        Arrays.sort(names, new Comparator<Names>() {
+            @Override
+            public int compare(Names o1, Names o2) {
+                return 0;
+            }
+        }); //нужен компаратор
         return names;
     }
 
-    public static Names[] massiveStringToMassiveName(String[] lines){
+    public static Names[] massiveStringToMassiveName(String[] lines) {
         Names[] names = {};
-        for (int i = 0; i<lines.length; i++){
+        for (int i = 0; i < lines.length; i++) {
             names[i] = fromString(lines[i]);
         }
         return names;
     }
 
-    public static int bynSearch (Names[] inNames, String inName){
+    public static int bynSearch(Names[] inNames, String inName) {
         int names;
         names = Arrays.binarySearch(inNames, inName); //нужен компаратор
         return names;
