@@ -27,13 +27,18 @@ interface Singing {
 }
 
 class Cat extends Animals implements Singing {
-
+    Cat(String name){
+        this.name = name;
+    }
     public String sing() {
         return "i'm singing";
     }
 }
 
 class Duck extends Animals implements Singing, Swimming, Flying {
+    Duck(String name){
+        this.name = name;
+    }
     public String sing() {
         return "i'm singing";
     }
@@ -48,12 +53,18 @@ class Duck extends Animals implements Singing, Swimming, Flying {
 }
 
 class Fish extends Animals implements Swimming {
+    Fish(String name){
+        this.name = name;
+    }
     public String swim() {
         return "i'm swimming";
     }
 }
 
 class Fly extends Animals implements Flying {
+    Fly(String name){
+        this.name = name;
+    }
     public String fly() {
         return "i'm flying";
     }
@@ -61,17 +72,13 @@ class Fly extends Animals implements Flying {
 
 class test {
     public static void main(String[] args) {
-        Cat barsicCat = new Cat();
-        barsicCat.name = "Барсик";
+        Cat barsicCat = new Cat("Барсик");
         System.out.println(barsicCat.name + " умеет " + barsicCat.sing());
-        Duck stuppedDuck = new Duck();
-        stuppedDuck.name = "Тупая Утка";
+        Duck stuppedDuck = new Duck("Тупая утка");
         System.out.println(stuppedDuck.name + " умеет " + stuppedDuck.sing() + " " + stuppedDuck.fly() + " " + stuppedDuck.swim());
-        Fish nemo = new Fish();
-        nemo.name = "Немо";
+        Fish nemo = new Fish("Немо");
         System.out.println(nemo.name + " умеет " + nemo.swim());
-        Fly cokotuha = new Fly();
-        cokotuha.name = "Цокотуха";
+        Fly cokotuha = new Fly("Цокотуха");
         System.out.println(cokotuha.name + " умеет " + cokotuha.fly());
     }
 }
