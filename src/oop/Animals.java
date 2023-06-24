@@ -57,5 +57,16 @@ class Fly extends Animals implements Flying {
         return "i'm flying";
     }
 }
-
+class test{
+    public static void main(String[] args){
+        Cat barsicCat = new Cat();
+        System.out.println(barsicCat.name + " умеет " + barsicCat.sing());
+        Duck stuppedDuck = new Duck();
+        System.out.println(stuppedDuck.name + " умеет " + stuppedDuck.sing() + " " + stuppedDuck.fly() + " " + stuppedDuck.swim());
+        Fish nemo = new Fish();
+        System.out.println(nemo.name + " умеет " + nemo.swim());
+        Fly cokotuha = new Fly();
+        System.out.println(cokotuha.name + " умеет " + cokotuha.fly());
+    }
+}
 
