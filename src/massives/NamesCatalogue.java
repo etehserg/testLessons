@@ -1,6 +1,7 @@
 package massives;
 
 
+import javax.xml.stream.events.Namespace;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -42,7 +43,7 @@ class Names {
 public class NamesCatalogue {
     public static String[] readFile() throws FileNotFoundException {
         File file = new File("yob2022.txt");
-        String[] names = new String[100];
+        String[] names = new String[100000];
         Scanner sc = new Scanner(file);
         for (int i1 = 0; sc.hasNextLine(); i1++) {
             names[i1] = sc.nextLine();
@@ -52,31 +53,29 @@ public class NamesCatalogue {
 
     public static Names fromString(String names) {
         String[] test134 = names.split(",");
-        Names Names1 = new Names(test134[0], test134[1], test134[2]);
-        return Names1;
+        Names namesIsParsed = new Names(test134[0], test134[1], test134[2]);
+        return namesIsParsed;
     }
 
-    public static Names[] isSorted(Names[] names) {
-        Arrays.sort(names, new Comparator<Names>() {
-            @Override
-            public int compare(Names o1, Names o2) {
-                return 0;
-            }
-        }); //нужен компаратор
-        return names;
+    public static Names[] isSorted(Names[] namesSorted) {
+        Arrays.sort(namesSorted, Comparator.comparing(o -> o.name));
+        return namesSorted;
     }
 
     public static Names[] massiveStringToMassiveName(String[] lines) {
-        Names[] names = {};
+        Names[] namesMassiveObject = new Names[100000];
         for (int i = 0; i < lines.length; i++) {
-            names[i] = fromString(lines[i]);
+            System.out.println(lines[i]);
+            namesMassiveObject[i] = fromString(lines[i]);
+
         }
-        return names;
+        return namesMassiveObject;
     }
 
     public static int bynSearch(Names[] inNames, String inName) {
         int names;
-        names = Arrays.binarySearch(inNames, inName); //нужен компаратор
+        Names key = new Names(inName,null ,null );
+        names = Arrays.binarySearch(inNames, key, Comparator.comparing(o -> o.name));
         return names;
     }
 
@@ -87,7 +86,11 @@ public class NamesCatalogue {
         String[] read = readFile();        //call readFile   input file, output massive Strings
         Names[] newMas = massiveStringToMassiveName(read);
         Names[] sortMas = isSorted(newMas);   //call isSorted
-        //make search
+        int searchMas = bynSearch(sortMas, fromUser);
+        System.out.println(searchMas);
+        if (searchMas == 0){
+            System.out.println("is match!");
+        }
 
         //print pole and frequency
     }
