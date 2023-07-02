@@ -22,37 +22,40 @@ class Triangle implements Shape {
 
 class Square implements Shape {
     float a;
+
     Square(float a) {
         this.a = a;
     }
 
     public float getArea() {
-        return a*a;
+        return a * a;
     }
 }
 
 class Rectangle implements Shape {
     float a;
     float b;
+
     Rectangle(float a, float b) {
         this.a = a;
         this.b = b;
     }
 
     public float getArea() {
-        return a*b;
+        return a * b;
     }
 }
 
 class Circle implements Shape {
     float r;
     float pi = (float) Math.PI;
+
     Circle(float r) {
         this.r = r;
     }
 
     public float getArea() {
-        return pi*r*r;
+        return pi * r * r;
     }
 }
 
