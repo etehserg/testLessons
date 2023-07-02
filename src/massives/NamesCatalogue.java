@@ -1,7 +1,6 @@
 package massives;
 
 
-import javax.xml.stream.events.Namespace;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -53,8 +52,7 @@ public class NamesCatalogue {
 
     public static Names fromString(String names) {
         String[] test134 = names.split(",");
-        Names namesIsParsed = new Names(test134[0], test134[1], test134[2]);
-        return namesIsParsed;
+        return new Names(test134[0], test134[1], test134[2]);
     }
 
     public static Names[] isSorted(Names[] namesSorted) {
