@@ -61,10 +61,11 @@ class Circle implements Shape {
 
 class Shapes {
     public static void main(String[] args) {
-        Triangle anyTriangle = new Triangle(20, 10);
+        Shape anyTriangle = new Triangle(20, 10);
         System.out.println(anyTriangle.getArea());
         Square anySquare = new Square(30);
         System.out.println(anySquare.getArea());
+        System.out.println(anySquare.a);
         Rectangle anyRectangle = new Rectangle(40, 10);
         System.out.println(anyRectangle.getArea());
         Circle anyCircle = new Circle(15);
