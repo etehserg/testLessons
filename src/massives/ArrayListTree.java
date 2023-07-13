@@ -17,10 +17,12 @@ class ArrayListThree {
         numbers.add(sc.nextInt());
         Collections.sort(numbers);
         numbers.forEach(System.out::println); //проверка
-        long sum = numbers.stream().mapToInt(Integer::valueOf).summaryStatistics().getSum();
+        var intSummaryStatistics = numbers.stream().mapToInt(Integer::valueOf).summaryStatistics();
+        long sum = intSummaryStatistics.getSum();
+
         System.out.println("Сумма элементов равна " + sum);
-        double average = numbers.stream().mapToInt(Integer::valueOf).summaryStatistics().getAverage();
+        double average = intSummaryStatistics.getAverage();
         System.out.println("Среднее значение равно " + average);
-        System.out.println("Медиана равна " + numbers.get(1));
+        System.out.println("Медиана равна " + numbers.get(numbers.size()/2));
     }
 }

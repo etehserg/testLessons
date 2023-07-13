@@ -9,8 +9,11 @@ class ArrayListOne {
         this.name = name;
     }
 
+    @Override
     public String toString() {
-        return "People {" + "name='" + name + '\'' + '}';
+        return "People {" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ class ArrayListOne {
         people.add(new ArrayListOne("Oksana"));
         ArrayListOne yulya = new ArrayListOne("Yulya");
         people.add(yulya);
-        System.out.println(people);
+        System.out.println(people.toString());
     }
 
 }
