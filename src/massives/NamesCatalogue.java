@@ -37,14 +37,22 @@ class Names {
         this.pole = pole;
         this.frequency = frequency;
     }
+
+    @Override
+    public String toString() {
+        return "Names{" +
+                " pole='" + pole + '\'' +
+                ", frequency='" + frequency + '\'' +
+                '}';
+    }
 }
 
 public class NamesCatalogue {
     public static String[] readFile() throws FileNotFoundException {
         File file = new File("yob2022.txt");
-        String[] names = new String[100000];
+        String[] names = new String[10000];
         Scanner sc = new Scanner(file);
-        for (int i1 = 0; sc.hasNextLine(); i1++) {
+        for (int i1 = 0; sc.hasNextLine() && i1 < 10000; i1++) {
             names[i1] = sc.nextLine();
         }
         return names;
@@ -61,10 +69,12 @@ public class NamesCatalogue {
     }
 
     public static Names[] massiveStringToMassiveName(String[] lines) {
-        Names[] namesMassiveObject = new Names[100000];
+        Names[] namesMassiveObject = new Names[10000];
         for (int i = 0; i < lines.length; i++) {
-            System.out.println(lines[i]);
-            namesMassiveObject[i] = fromString(lines[i]);
+//            System.out.println(lines[i]);
+            if (lines[i] != null) {
+                namesMassiveObject[i] = fromString(lines[i]);
+            }
 
         }
         return namesMassiveObject;
@@ -72,7 +82,7 @@ public class NamesCatalogue {
 
     public static int bynSearch(Names[] inNames, String inName) {
         int names;
-        Names key = new Names(inName,null ,null );
+        Names key = new Names(inName, null, null);
         names = Arrays.binarySearch(inNames, key, Comparator.comparing(o -> o.name));
         return names;
     }
@@ -86,8 +96,9 @@ public class NamesCatalogue {
         Names[] sortMas = isSorted(newMas);   //call isSorted
         int searchMas = bynSearch(sortMas, fromUser);
         System.out.println(searchMas);
-        if (searchMas == 0){
+        if (searchMas > 0) {
             System.out.println("is match!");
+            System.out.println(sortMas[searchMas]);
         }
 
         //print pole and frequency
