@@ -37,7 +37,7 @@ class Car implements Comparable<Car> {
     {
         if (this.topSpeed == anotherCar.topSpeed) {
             return 0;
-        } else if (this.topSpeed < anotherCar.topSpeed) {
+        } else if (this.topSpeed > anotherCar.topSpeed) {
             return -1;
         } else {
             return 1;
