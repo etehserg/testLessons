@@ -28,20 +28,10 @@ class Car implements Comparable<Car> {
                 '}';
     }
 
-    String getName() {
-        return name;
-    }
-
     @Override
     public int compareTo(Car anotherCar)
     {
-        if (this.topSpeed == anotherCar.topSpeed) {
-            return 0;
-        } else if (this.topSpeed > anotherCar.topSpeed) {
-            return -1;
-        } else {
-            return 1;
-        }
+        return Float.compare(anotherCar.topSpeed, this.topSpeed);
     }
 
 }

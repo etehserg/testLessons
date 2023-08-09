@@ -1,5 +1,7 @@
 package inout;
 
+import java.util.stream.IntStream;
+
 public class Nprint{
     public static void main(String[] args) {
     Nprint2.intN2(5);
@@ -7,19 +9,18 @@ public class Nprint{
 }
     class Nprint0 {
         public static void intN(int n) {
-            for (int i = 0; i < n; i++) {
-                System.out.println(n);
-
-            }
+            IntStream.range(0, n).map(i -> n).forEach(System.out::println);
         }
     }
 
     class Nprint1 {
         public static void intN1(int n1) {
             int i = 0;
-            while (i < n1) {
-                System.out.println(n1);
-                i += 1;
+            if (i < n1) {
+                do {
+                    System.out.println(n1);
+                    i += 1;
+                } while (i < n1);
             }
         }
     }

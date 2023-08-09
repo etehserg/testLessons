@@ -32,29 +32,13 @@ class CarArray {
 }
 class AccelerationComparator implements Comparator<CarArray>{
     public int compare(CarArray c1, CarArray c2){
-        if (c1.acceleration == c2.acceleration){
-            return 0;
-        }
-        if (c1.acceleration > c2.acceleration){
-            return 1;
-        }
-        else {
-            return -1;
-        }
+        return Float.compare(c1.acceleration, c2.acceleration);
     }
 }
 
 class PowerComparator implements Comparator<CarArray>{
     public int compare(CarArray c1, CarArray c2){
-        if (c1.maxPower == c2.maxPower){
-            return 0;
-        }
-        if (c1.maxPower < c2.maxPower){
-            return 1;
-        }
-        else{
-            return -1;
-        }
+        return Float.compare(c2.maxPower, c1.maxPower);
     }
 }
 class CarArrayMain {

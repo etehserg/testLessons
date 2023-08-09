@@ -18,15 +18,10 @@ class Games {
         return name + "/" + genre + "/" + year;
     }
 
-    public static Games fromString(String line) {
-        String[] test134 = line.split("/");
-        Games Games1 = new Games(test134[0], test134[1], test134[2]);
-        return Games1;
-    }
 }
 
 public class GamesCatalogue {
-    public static void getString(Games[] library) { //args transit to method defaultString
+    static void getString(Games[] library) { //args transit to method defaultString
         for (int i = 0; i < library.length - 1; i++) {
             if (library[i] != null) {
                 String test1 = library[i].toString();

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Date1 {
     public static void main(String[] args) throws ParseException {
         Calendar today = new GregorianCalendar();
-        Calendar user1 = new GregorianCalendar(2024, 05, 14);
+        new GregorianCalendar(2024, Calendar.JUNE, 14);
         today.add(Calendar.DAY_OF_YEAR, 2); //+2 days
         System.out.println("Сегодня + 2 дня = " + today.getTime());   // today +2
 

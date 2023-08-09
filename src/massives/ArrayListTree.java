@@ -2,6 +2,7 @@ package massives;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.IntSummaryStatistics;
 import java.util.Scanner;
 
 class ArrayListThree {
@@ -17,7 +18,11 @@ class ArrayListThree {
         numbers.add(sc.nextInt());
         Collections.sort(numbers);
         numbers.forEach(System.out::println); //проверка
-        var intSummaryStatistics = numbers.stream().mapToInt(Integer::valueOf).summaryStatistics();
+        var intSummaryStatistics = new IntSummaryStatistics();
+        for (Integer number : numbers) {
+            int valueOf = Integer.valueOf(number);
+            intSummaryStatistics.accept(valueOf);
+        }
         long sum = intSummaryStatistics.getSum();
 
         System.out.println("Сумма элементов равна " + sum);

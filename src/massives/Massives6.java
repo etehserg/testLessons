@@ -31,9 +31,9 @@ public class Massives6 {
                 {10,11,12}
         };
         int[][] test = Massives6.multiplyMatrices(a, b);
-        for (int i = 0; i < test.length; i++) {
+        for (int[] ints : test) {
             for (int j = 0; j < test[0].length; j++) {
-                System.out.print(" " + test[i][j] + " ");
+                System.out.print(" " + ints[j] + " ");
             }
             System.out.println();
         }

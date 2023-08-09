@@ -58,7 +58,7 @@ public class NamesCatalogue {
         return names;
     }
 
-    public static Names fromString(String names) {
+     static Names fromString(String names) {
         String[] test134 = names.split(",");
         return new Names(test134[0], test134[1], test134[2]);
     }

@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Roulette {
     public static int generate(int min, int max) {
         Random random = new Random();
-        int randomInt = random.nextInt((max - min) + 1) + min;
-        return randomInt;
+        return random.nextInt((max - min) + 1) + min;
     }
     public static boolean logic(int b, int c, int d) {
         boolean betIsTrue = false;
