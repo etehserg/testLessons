@@ -2,7 +2,6 @@ package massives;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public class Program {
 
@@ -28,11 +27,11 @@ public class Program {
         states.remove("Germany");
 
         // хеш-таблица объектов Person
-        HashSet<Person> people = new HashSet<>();
-        people.add(new Person("Mike"));
-        people.add(new Person("Tom"));
-        people.add(new Person("Nick"));
-        for (Person p : people) {
+        HashSet<MapPerson> people = new HashSet<>();
+        people.add(new MapPerson("Mike"));
+        people.add(new MapPerson("Tom"));
+        people.add(new MapPerson("Nick"));
+        for (MapPerson p : people) {
 
             System.out.println(p.getName());
         }
