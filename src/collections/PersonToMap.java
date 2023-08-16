@@ -1,12 +1,10 @@
 package collections;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class Person {
-    private String name;
-    private String city;
+    private final String name;
+    private final String city;
 
     public Person(String name, String city) {
         this.name = name;
@@ -33,6 +31,8 @@ public class PersonToMap {
         people.add(new Person("Сергей", "Санкт-Петербург"));
         people.add(new Person("Юлия", "Берлин"));
         people.add(new Person("Даниил", "Берлин"));
+        people.add(new Person("Ольга", "Санкт-Петербург"));
+        people.add(new Person("Иван", "Москва"));
         //convert to map
         Map<String, ArrayList<Person>> map = new HashMap<>();
         for (Person ob : people) {
@@ -45,7 +45,11 @@ public class PersonToMap {
             }
         }
 
-        System.out.println(map);
+        System.out.println(map); //task part 1
+
+        List<String> cities = new ArrayList<>(map.keySet()); //new list for comparing
+        cities.sort(Comparator.comparingInt(city -> map.get(city).size()));  //hand made comparatator to size keys values transiting element from string to int
+        System.out.println(cities); //task part 2 print
     }
 }
 
