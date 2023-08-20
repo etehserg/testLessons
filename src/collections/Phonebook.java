@@ -45,7 +45,7 @@ public class Phonebook {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите номер через +");
         String phone = sc.nextLine();
-        String person = map.get(phone);
+        String person = map.get(phone); //ключевая строка программы - быстрый доступ по ключу
         System.out.println(person);
     }
 
